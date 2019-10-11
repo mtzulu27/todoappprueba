@@ -10,7 +10,7 @@ app.listen(3000, function () {
 });
 
 
-app.post('/origamifire/:projectName/DELETE/:index', function(req, res){
+app.post('/origamifire/:origami-todo-app/DELETE/:index', function(req, res){
   for (var dataObject in req.body) {
     obj = JSON.parse(dataObject);
     var itemToUpdate = Object.keys(obj)[req.params.index];
@@ -28,7 +28,7 @@ function deleteItemFromFirebase(projectName, id){
       'X-HTTP-Method-Override': 'DELETE'
     }
   };
-  var url = 'https://'+ projectName + '.firebaseio.com/todos/'+ id +'.json'
+  var url = 'https://'+ origami-todo-app + '.firebaseio.com/todos/'+ -LqqnL2mCR5pfA4r2Lom +'.json'
   request.get(url,options,function(err,res,body){
     if(err){
       console.log(err)
