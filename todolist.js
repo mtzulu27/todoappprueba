@@ -8,33 +8,3 @@ app.get('/', function (req, res) {
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
-
-
-app.post('/origamifire/:origami-todo-app/DELETE/:index', function(req, res){
-  for (var dataObject in req.body) {
-    obj = JSON.parse(dataObject);
-    var itemToUpdate = Object.keys(obj)[req.params.index];
-    deleteItemFromFirebase(req.params.projectName, itemToUpdate)
-  }
-  res.sendStatus(200)
-  var error = function (err, response) {
-    res.send(err)
-  };
-})
-
-function deleteItemFromFirebase(projectName, id){
-  var options = {
-    headers: {
-      'X-HTTP-Method-Override': 'DELETE'
-    }
-  };
-  var url = 'https://'+ origami-todo-app + '.firebaseio.com/todos/'+ -LqqnL2mCR5pfA4r2Lom +'.json'
-  request.get(url,options,function(err,res,body){
-    if(err){
-      console.log(err)
-    }
-    if(res.statusCode !== 200 ){
-      console.log('success')
-    }
-  });
-}
